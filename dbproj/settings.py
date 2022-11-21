@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'dbproj.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -86,6 +86,17 @@ DATABASES = {
         'USER': 'wzootkbpdvggdh',
         'PASSWORD': '6200e2fc3db8920b45355d283a3806f60bb35ac5b85c1be4606159ab82cc442c',
         'HOST': 'ec2-3-231-82-226.compute-1.amazonaws.com',
+        'PORT': '5432',
+    }
+}
+'''
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'bonuspartDb',
+        'USER': 'postgres',
+        'PASSWORD': 'qwerf123',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
