@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="{% static 'crud/stylesheet.css' %}">
+<head>
+    <meta charset="UTF-8">
+    <title>discover</title>
+</head>
+<a href = '/'>
+    <h1>HOME</h1>
+
+</a>
+<body>
+<form method="POST" action="create_discover/">
+    {% csrf_token %}
+    <p>
+        <label>Insert country of discovery</label><br>
+        <input type="text" name="cname"/>
+    </p>
+    <p>
+        <label>Insert disease code of discovered disease</label><br>
+        <input type="text" name="disease_code"/>
+    </p>
+    <p>
+        <label>Insert date of first encounter of discovered disease</label><br>
+        <input type="date" name="first_enc_date"/>
+    </p>
+    <input type="submit" value="Save">
+</form>
+{% for message in messages %}
+
+   <div class="alert alert-success">
+          {{ message }}
+   </div>
+
+{% endfor %}
+
+<h2>
+    <table>
+        <thead><th>country name</th><th>disease code</th><th>date of first encounter</th><th></th></thead>
+        {% for d in discover %}
+        <tr>
+            <td>{{ d.cname }}</td>
+            <td>{{ d.disease_code }}</td>
+            <td>{{ d.first_enc_date }}</td>
+            <td><a href="update_discover/{{d.cname}},{{d.disease_code}}">Change</a> or <a href="delete_discover/{{d.cname}},{{d.disease_code}}">Delete</a> </td>
+        </tr>
+        {% endfor %}
+    </table>
+</h2>
+</body>
+</html>

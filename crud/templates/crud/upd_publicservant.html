@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>assignment 2</title>
+</head>
+<a href = '/publicservant/'>
+    <h1>back</h1>
+</a>
+<body>
+<form method="POST">
+    {% csrf_token %}
+    <p>
+        <h3>{{publicservant.email}}</h3>
+    </p>
+    <p>
+        <label>Insert public servant's new department</label><br>
+        <input type="text" name="department" value="{{publicservant.department}}">
+    </p>
+    <input type="submit" value="Save">
+</form>
+</body>
+</html>

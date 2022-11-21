@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>assignment 2</title>
+</head>
+<a href = '/record/'>
+    <h1>back</h1>
+</a>
+<body>
+<form method="POST">
+    {% csrf_token %}
+    <p>
+        <h3>{{record.email}}, {{record.cname}}, {{record.disease_code}}</h3>
+    </p>
+    <p>
+        <label>Insert total deaths for this record</label><br>
+        <input type="number" name="total_deaths" value="{{record.total_deaths}}">
+    </p>
+    <p>
+        <label>Insert total patients for this record</label><br>
+        <input type="number" name="total_patients" value="{{record.total_patients}}">
+    </p>
+    <input type="submit" value="Save">
+</form>
+</body>
+</html>

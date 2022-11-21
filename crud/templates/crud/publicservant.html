@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="{% static 'crud/stylesheet.css' %}">
+<head>
+    <meta charset="UTF-8">
+    <title>public servant</title>
+</head>
+<a href = '/'>
+    <h1>HOME</h1>
+
+</a>
+<body>
+<form method="POST" action="create_publicservant/">
+    {% csrf_token %}
+    <p>
+        <label>Insert public servant's email</label><br>
+        <input type="text" name="email"/>
+    </p>
+    <p>
+        <label>Insert public servant's department</label><br>
+        <input type="text" name="department"/>
+    </p>
+    <input type="submit" value="Save">
+</form>
+{% for message in messages %}
+
+   <div class="alert alert-success">
+          {{ message }}
+   </div>
+
+{% endfor %}
+<h2>
+    <table>
+        <thead><th>user</th><th>department</th><th></th></thead>
+        {% for ps in pubS %}
+        <tr>
+            <td>{{ ps.email }}</td>
+            <td>{{ ps.department }}</td>
+            <td><a href="update_publicservant/{{ps.email.email}}">Change</a> or <a href="delete_publicservant/{{ps.email.email}}">Delete</a> </td>
+        </tr>
+        {% endfor %}
+    </table>
+</h2>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="{% static 'crud/stylesheet.css' %}">
+<head>
+    <meta charset="UTF-8">
+    <title>doctor</title>
+</head>
+<a href = '/'>
+    <h1>HOME</h1>
+
+</a>
+<body>
+<form method="POST" action="create_doctor/">
+    {% csrf_token %}
+    <p>
+        <label>Insert doctor's email</label><br>
+        <input type="text" name="email"/>
+    </p>
+    <p>
+        <label>Insert doctor's degree</label><br>
+        <input type="text" name="doctor_degree"/>
+    </p>
+    <input type="submit" value="Save">
+</form>
+{% for message in messages %}
+
+   <div class="alert alert-success">
+          {{ message }}
+   </div>
+
+{% endfor %}
+<h2>
+    <table>
+        <thead><th>user</th><th>degree</th><th></th></thead>
+        {% for d in doc %}
+        <tr>
+            <td>{{ d.email }}</td>
+            <td>{{ d.doctor_degree }}</td>
+            <td><a href="update_doctor/{{d.email.email}}">Change</a> or <a href="delete_doctor/{{d.email.email}}">Delete</a> </td>
+        </tr>
+        {% endfor %}
+    </table>
+</h2>
+</body>
+</html>

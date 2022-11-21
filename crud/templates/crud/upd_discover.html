@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>assignment 2</title>
+</head>
+<a href = '/discover/'>
+    <h1>back</h1>
+</a>
+<body>
+<form method="POST">
+    {% csrf_token %}
+    <p>
+        <h3>{{discover.disease_code}} in {{discover.cname}}</h3>
+    </p>
+    <p>
+        <label>Insert new date of first encounter of this disease </label><br>
+        <input type="date" name="first_enc_date" value="{{discover.first_enc_date}}">
+    </p>
+    <input type="submit" value="Save">
+</form>
+</body>
+</html>

@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="{% static 'crud/stylesheet.css' %}">
+<head>
+    <meta charset="UTF-8">
+    <title>diseases</title>
+</head>
+<a href = '/'>
+    <h1>HOME</h1>
+
+</a>
+<body>
+<form method="POST" action="create_disease/">
+    {% csrf_token %}
+    <p>
+        <label>Insert disease code</label><br>
+        <input type="text" name="disease_code"/>
+    </p>
+    <p>
+        <label>Insert disease's pathogen</label><br>
+        <input type="text" name="pathogen"/>
+    </p>
+    <p>
+        <label>Insert disease description</label><br>
+        <input type="text" name="description"/>
+    </p>
+    <p>
+        <label>Insert disease's disease type ID</label><br>
+        <input type="number" name="diseasetype_id"/>
+    </p>
+
+    <input type="submit" value="Save">
+</form>
+{% for message in messages %}
+
+   <div class="alert alert-success">
+          {{ message }}
+   </div>
+
+{% endfor %}
+<h2>
+    <table>
+        <thead><th>disease code</th><th>pathogen</th><th>description</th><th>disease type ID</th><th></th></thead>
+        {% for d in dis %}
+        <tr>
+            <td>{{ d.disease_code }}</td>
+            <td>{{ d.pathogen }}</td>
+            <td>{{ d.description }}</td>
+            <td>{{ d.diseasetype_id }}</td>
+            <td><a href="update_disease/{{d.disease_code}}">Change</a> or <a href="delete_disease/{{d.disease_code}}">Delete</a> </td>
+        </tr>
+        {% endfor %}
+    </table>
+</h2>
+</body>
+</html>

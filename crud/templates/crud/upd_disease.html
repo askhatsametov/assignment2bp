@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>assignment 2</title>
+</head>
+<a href = '/disease/'>
+    <h1>back</h1>
+</a>
+<body>
+<form method="POST">
+    {% csrf_token %}
+    <p>
+        <h3>{{disease.disease_code}}</h3>
+    </p>
+    <p>
+        <label>Insert disease's new pathogen</label><br>
+        <input type="text" name="pathogen" value="{{disease.pathogen}}">
+    </p>
+    <p>
+        <label>Insert disease's new description</label><br>
+        <input type="text" name="description" value="{{disease.description}}">
+    </p>
+    <p>
+        <label>Insert disease's new disease type ID</label><br>
+        <input type="text" name="diseasetype_id" value="{{disease.diseasetype_id}}">
+    </p>
+    <input type="submit" value="Save">
+</form>
+</body>
+</html>

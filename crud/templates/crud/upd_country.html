@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>assignment 2</title>
+</head>
+<a href = '/country/'>
+    <h1>back</h1>
+</a>
+<body>
+<form method="POST">
+    {% csrf_token %}
+    <p>
+        <h3>{{country.cname}}</h3>
+    </p>
+    <p>
+        <label>Insert country's population</label><br>
+        <input type="number" name="population" value="{{country.population}}">
+    </p>
+    <input type="submit" value="Save">
+</form>
+</body>
+</html>

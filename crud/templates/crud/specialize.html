@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="{% static 'crud/stylesheet.css' %}">
+<head>
+    <meta charset="UTF-8">
+    <title>specialize</title>
+</head>
+<a href = '/'>
+    <h1>HOME</h1>
+
+</a>
+<body>
+<form method="POST" action="create_specialize/">
+    {% csrf_token %}
+    <p>
+        <label>Insert disease type ID</label><br>
+        <input type="number" name="diseasetype_id"/>
+    </p>
+    <p>
+        <label>Insert email of doctor</label><br>
+        <input type="text" name="email"/>
+    </p>
+    <input type="submit" value="Save">
+</form>
+{% for message in messages %}
+
+   <div class="alert alert-success">
+          {{ message }}
+   </div>
+
+{% endfor %}
+<h2>
+    <table>
+        <thead><th>disease type ID</th><th>doctor</th><th></th></thead>
+        {% for s in specialize %}
+        <tr>
+            <td>{{ s.diseasetype }}</td>
+            <td>{{ s.email }}</td>
+            <td><a href="delete_specialize/{{s.id}}">Delete</a> </td>
+        </tr>
+        {% endfor %}
+    </table>
+</h2>
+</body>
+</html>

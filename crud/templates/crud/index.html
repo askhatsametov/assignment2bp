@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>country</title>
+</head>
+<body>
+<h2>
+    <table>
+        <thead><th>cname</th><th>population</th><th></th></thead>
+        {% for country in country %}
+        <tr>
+            <td>{{ country.cname }}</td>
+            <td>{{ country.population }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</h2>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>assignment 2</title>
+</head>
+<a href = '/diseaseType/'>
+    <h1>back</h1>
+</a>
+<body>
+<form method="POST">
+    {% csrf_token %}
+    <p>
+        <h3>{{dType.diseasetype_id}}</h3>
+    </p>
+    <p>
+        <label>Insert disease type's new description</label><br>
+        <input type="text" name="description" value="{{dType.description}}">
+    </p>
+    <input type="submit" value="Save">
+</form>
+</body>
+</html>

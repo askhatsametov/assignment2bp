@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>assignment 2</title>
+</head>
+<a href = '/specialize/'>
+    <h1>back</h1>
+</a>
+<body>
+<form method="POST">
+    {% csrf_token %}
+    <p>
+        <h3>{{specialize.email.email}}</h3>
+    </p>
+    <p>
+        <label>Insert new disease type</label><br>
+        <input type="number" name="disease_type" value="{{specialize.diseasetype}}">
+    </p>
+    <input type="submit" value="Save">
+</form>
+</body>
+</html>

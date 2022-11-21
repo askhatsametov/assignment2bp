@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="{% static 'crud/stylesheet.css' %}">
+<head>
+    <meta charset="UTF-8">
+    <title>country</title>
+</head>
+<a href = '/'>
+    <h1>HOME</h1>
+
+</a>
+<body>
+
+<form method="POST" action="create_country/">
+    {% csrf_token %}
+    <p>
+        <label>Insert country name</label><br>
+        <input type="text" name="cname"/>
+    </p>
+    <p>
+        <label>Insert country's population</label><br>
+        <input type="number" name="population"/>
+    </p>
+    <input type="submit" value="Save">
+</form>
+{% for message in messages %}
+
+    <div class="alert alert-success">
+           {{ message }}
+    </div>
+
+{% endfor %}
+<h2>
+    <table>
+        <thead><th>cname</th><th>population</th><th></th></thead>
+        {% for country in country %}
+        <tr>
+            <td>{{ country.cname }}</td>
+            <td>{{ country.population }}</td>
+            <td><a href="update_country/{{country.cname}}">Change</a> or <a href="delete_country/{{country.cname}}">Delete</a> </td>
+        </tr>
+        {% endfor %}
+    </table>
+</h2>
+</body>
+</html>

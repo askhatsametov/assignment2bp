@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>assignment 2</title>
+</head>
+<a href = '/doctor/'>
+    <h1>back</h1>
+</a>
+<body>
+<form method="POST">
+    {% csrf_token %}
+    <p>
+        <h3>{{doctor.email}}</h3>
+    </p>
+    <p>
+        <label>Insert doctor's degree</label><br>
+        <input type="text" name="doctor_degree" value="{{doctor.doctor_degree}}">
+    </p>
+    <input type="submit" value="Save">
+</form>
+</body>
+</html>

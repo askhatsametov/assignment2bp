@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>assignment 2</title>
+</head>
+<a href = '/users/'>
+    <h1>back</h1>
+</a>
+<body>
+<form method="POST">
+    {% csrf_token %}
+    <p>
+        <h3>{{user.email}}</h3>
+    </p>
+    <p>
+        <label>Insert first name of user</label><br>
+        <input type="text" name="firstname" value="{{user.firstname}}">
+    </p>
+    <p>
+        <label>Insert surname of user</label><br>
+        <input type="text" name="surname" value="{{user.surname}}">
+    </p>
+    <p>
+        <label>Insert user's new salary</label><br>
+        <input type="number" name="salary" value="{{user.salary}}">
+    </p>
+    <p>
+        <label>Insert user's new phone number</label><br>
+        <input type="text" name="phone" value="{{user.phone}}">
+    </p>
+    <p>
+        <label>Insert user's new country</label><br>
+        <input type="text" name="cname" value="{{user.cname}}">
+    </p>
+    <input type="submit" value="Save">
+</form>
+</body>
+</html>

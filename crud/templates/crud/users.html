@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="{% static 'crud/stylesheet.css' %}">
+<head>
+    <meta charset="UTF-8">
+    <title>users</title>
+</head>
+<a href = '/'>
+    <h1>HOME</h1>
+
+</a>
+<body>
+<form method="POST" action="create_users/">
+    {% csrf_token %}
+    <p>
+        <label>Insert email of user</label><br>
+        <input type="text" name="email"/>
+    </p>
+    <p>
+        <label>Insert first name of user</label><br>
+        <input type="text" name="firstname"/>
+    </p>
+    <p>
+        <label>Insert surname of user</label><br>
+        <input type="text" name="surname"/>
+    </p>
+    <p>
+        <label>Insert salary of user</label><br>
+        <input type="number" name="salary"/>
+    </p>
+    <p>
+        <label>Insert phone number of user</label><br>
+        <input type="text" name="phone"/>
+    </p>
+    <p>
+        <label>Insert county of user</label><br>
+        <input type="text" name="cname"/>
+    </p>
+    <input type="submit" value="Save">
+</form>
+{% for message in messages %}
+
+    <div class="alert alert-success">
+           {{ message }}
+    </div>
+
+{% endfor %}
+<h2>
+    <table>
+        <thead><th>email</th><th>firstname</th><th>surname</th><th>salary</th><th>phone number</th><th>country</th><th></th></thead>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.email }}</td>
+            <td>{{ user.firstname }}</td>
+            <td>{{ user.surname }}</td>
+            <td>{{ user.salary }}</td>
+            <td>{{ user.phone }}</td>
+            <td>{{ user.cname }}</td>
+            <td><a href="update_users/{{user.email}}">Change</a> or <a href="delete_users/{{user.email}}">Delete</a> </td>
+        </tr>
+        {% endfor %}
+    </table>
+</h2>
+</body>
+</html>
